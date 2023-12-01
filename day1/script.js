@@ -9,7 +9,7 @@ result = (d) => {
   d.split("-").map((a) => {
     f = a.split('').find((b) => !isNaN(b))
     l = a.split('').findLast((b) => !isNaN(b))
-    r += Number(f + "" + l)
+    r += f*10 + l*1
   })
   document.querySelector("#answer").innerHTML += r + " "
 }
