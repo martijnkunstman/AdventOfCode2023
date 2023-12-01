@@ -7,8 +7,8 @@ fetch("./day1/input.txt").then((r) => r.text()).then((d) => {
 result = (d) => {
   r = 0
   d.split("-").map((a) => {
-    f = a.split('').find((b) => !isNaN(b))
-    l = a.split('').findLast((b) => !isNaN(b))
+    f = a.match(/\d/);
+    l = a.match(/\d(?=\D*$)/);
     r += f*10 + l*1
   })
   document.querySelector("#answer").innerHTML += r + " "
