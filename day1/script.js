@@ -2,17 +2,15 @@ fetch("./input1.txt")
   .then((r) => r.text())
   .then((d) => {
     let answer1 = 0;
-    d.split(/\r\n/g).map((a) => {
-      let tempNumber = "";
+    d.split("-").map((a) => {
       let tempNumberStart = "";
       let tempNumberEnd = "";
       a.split("").map((b) => {
         !isNaN(b) && tempNumberStart == "" && (tempNumberStart = b);
         !isNaN(b) && (tempNumberEnd = b);
       });
-      answer1 = answer1 + Number(tempNumberStart + "" + tempNumberEnd);
+      answer1 += Number(tempNumberStart + "" + tempNumberEnd);
     });
-    console.log("answer1:" + answer1);
     document.getElementById("answer1").innerHTML = answer1;
   });
 
@@ -46,7 +44,7 @@ fetch("./input2.txt")
       "eight",
       "nine",
     ];
-    let data = d.split(/\r\n/g);
+    let data = d.split("-");
     for (let ii = 0; ii < data.length; ii++) {
       let place = 100;
       for (let i = 0; i < findme.length; i++) {
