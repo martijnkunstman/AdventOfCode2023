@@ -20,13 +20,13 @@ fetch("./input2.txt")
 let result = (input) => {
   let answer = 0;
   input.split("-").map((a) => {
-    let tempNumberStart = "";
-    let tempNumberEnd = "";
+    let first = "";
+    let last = "";
     a.split("").map((b) => {
-      !isNaN(b) && tempNumberStart == "" && (tempNumberStart = b);
-      !isNaN(b) && (tempNumberEnd = b);
+      !isNaN(b) && first == "" && (first = b);
+      !isNaN(b) && (last = b);
     });
-    answer += Number(tempNumberStart + "" + tempNumberEnd);
+    answer += Number(first + "" + last);
   });
   document.getElementById("answer").innerHTML += answer + "<br>";
 };
