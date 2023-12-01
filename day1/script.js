@@ -1,71 +1,33 @@
 fetch("./input1.txt")
   .then((r) => r.text())
   .then((d) => {
-    let answer1 = 0;
-    d.split("-").map((a) => {
-      let tempNumberStart = "";
-      let tempNumberEnd = "";
-      a.split("").map((b) => {
-        !isNaN(b) && tempNumberStart == "" && (tempNumberStart = b);
-        !isNaN(b) && (tempNumberEnd = b);
-      });
-      answer1 += Number(tempNumberStart + "" + tempNumberEnd);
-    });
-    document.getElementById("answer1").innerHTML = answer1;
+    result(d);
   });
-
 fetch("./input2.txt")
   .then((r) => r.text())
   .then((d) => {
-    //solution 2
-    let temp = "";
-    let temp1 = "";
-    let temp2 = "";
-    let answer2 = 0;
-    let findme = [
-      "0",
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "zero",
-      "one",
-      "two",
-      "three",
-      "four",
-      "five",
-      "six",
-      "seven",
-      "eight",
-      "nine",
-    ];
-    let data = d.split("-");
-    for (let ii = 0; ii < data.length; ii++) {
-      let place = 100;
-      for (let i = 0; i < findme.length; i++) {
-        let temp = data[ii].search(findme[i]);
-        if (temp < place && temp != -1) {
-          place = temp;
-          temp1 = i % 10;
-        }
-      }
-      let datatemp = data[ii].split("").reverse().join("");
-      let place2 = 100;
-      for (let i = 0; i < findme.length; i++) {
-        let temp = datatemp.search(findme[i].split("").reverse().join(""));
-        if (temp < place2 && temp != -1) {
-          place2 = temp;
-          temp2 = i % 10;
-        }
-      }
-      temp = temp1 + "" + temp2;
-      answer2 = answer2 + Number(temp);
-    }
-    console.log("answer2:" + answer2);
-    document.getElementById("answer2").innerHTML = answer2;
+    d = d.replaceAll("one", "o1e");
+    d = d.replaceAll("two", "t2o");
+    d = d.replaceAll("three", "t3e");
+    d = d.replaceAll("four", "f4r");
+    d = d.replaceAll("five", "f5e");
+    d = d.replaceAll("six", "s6x");
+    d = d.replaceAll("seven", "s7n");
+    d = d.replaceAll("eight", "e8t");
+    d = d.replaceAll("nine", "n9e");
+    console.log(d);
+    result(d);
   });
+let result = (input) => {
+  let answer = 0;
+  input.split("-").map((a) => {
+    let tempNumberStart = "";
+    let tempNumberEnd = "";
+    a.split("").map((b) => {
+      !isNaN(b) && tempNumberStart == "" && (tempNumberStart = b);
+      !isNaN(b) && (tempNumberEnd = b);
+    });
+    answer += Number(tempNumberStart + "" + tempNumberEnd);
+  });
+  document.getElementById("answer").innerHTML += answer + "<br>";
+};
