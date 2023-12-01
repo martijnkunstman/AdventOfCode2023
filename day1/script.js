@@ -1,4 +1,4 @@
-fetch("./input.txt")
+fetch("./input1.txt")
   .then((r) => r.text())
   .then((d) => {
     let answer1 = 0;
@@ -6,20 +6,17 @@ fetch("./input.txt")
       let tempNumber = "";
       let tempNumberStart = "";
       let tempNumberEnd = "";
-      a.split("").map(
-        (b) => !isNaN(b) && tempNumberStart == "" && (tempNumberStart = b)
-      );
-      a.split("")
-        .reverse()
-        .map((b) => !isNaN(b) && tempNumberEnd == "" && (tempNumberEnd = b));
-      tempNumber = tempNumberStart + tempNumberEnd;
-      answer1 = answer1 + Number(tempNumber);
+      a.split("").map((b) => {
+        !isNaN(b) && tempNumberStart == "" && (tempNumberStart = b);
+        !isNaN(b) && (tempNumberEnd = b);
+      });
+      answer1 = answer1 + Number(tempNumberStart + "" + tempNumberEnd);
     });
     console.log("answer1:" + answer1);
     document.getElementById("answer1").innerHTML = answer1;
   });
 
-  fetch("./input2.txt")
+fetch("./input2.txt")
   .then((r) => r.text())
   .then((d) => {
     //solution 2
@@ -56,7 +53,7 @@ fetch("./input.txt")
         let temp = data[ii].search(findme[i]);
         if (temp < place && temp != -1) {
           place = temp;
-          temp1 = i%10;
+          temp1 = i % 10;
         }
       }
       let datatemp = data[ii].split("").reverse().join("");
@@ -65,7 +62,7 @@ fetch("./input.txt")
         let temp = datatemp.search(findme[i].split("").reverse().join(""));
         if (temp < place2 && temp != -1) {
           place2 = temp;
-          temp2 = i%10;
+          temp2 = i % 10;
         }
       }
       temp = temp1 + "" + temp2;
@@ -74,5 +71,3 @@ fetch("./input.txt")
     console.log("answer2:" + answer2);
     document.getElementById("answer2").innerHTML = answer2;
   });
-
-
