@@ -24,6 +24,9 @@ html, body{
     flex-wrap: wrap;
     margin: 20px 0;
 }
+#answer{
+    font-size:32px;
+}
 button{
     margin:5px;
     padding: 10px 20px;
