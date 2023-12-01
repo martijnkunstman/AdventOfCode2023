@@ -1,9 +1,9 @@
-fetch("./input1.txt")
+fetch("./day1/input1.txt")
   .then((r) => r.text())
   .then((d) => {
     result(d);
   });
-fetch("./input2.txt")
+fetch("./day1/input2.txt")
   .then((r) => r.text())
   .then((d) => {
     d = d.replaceAll("one", "o1e");
@@ -20,12 +20,8 @@ fetch("./input2.txt")
 let result = (input) => {
   let answer = 0;
   input.split("-").map((a) => {
-    let first = "";
-    let last = "";
-    a.split("").map((b) => {
-      !isNaN(b) && first == "" && (first = b);
-      !isNaN(b) && (last = b);
-    });
+    let first = a.split('').find((b) => !isNaN(b));
+    let last = a.split('').findLast((b) => !isNaN(b));
     answer += Number(first + "" + last);
   });
   document.getElementById("answer").innerHTML += answer + "<br>";
