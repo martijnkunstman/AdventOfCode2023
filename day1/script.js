@@ -4,7 +4,7 @@ fetch("./day1/input.txt").then((r) => r.text()).then((d) => {
   sInts.map((a, i) => d = d.replaceAll(a, a[0]+(i + 1)+a.slice(-1)))
   result(d)
 })
-let result = (d) => {
+result = (d) => {
   ans = 0
   d.split("-").map((a) => {
     first = a.split('').find((b) => !isNaN(b))
