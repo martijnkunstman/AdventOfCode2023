@@ -1,7 +1,5 @@
-fetch("./day1/input1.txt").then((r) => r.text()).then((d) => {
+fetch("./day1/input.txt").then((r) => r.text()).then((d) => {
   result(d)
-})
-fetch("./day1/input2.txt").then((r) => r.text()).then((d) => {
   sInts = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
   sInts.map((a, i) => d = d.replaceAll(a, a[0]+(i + 1)+a.slice(-1)))
   result(d)
