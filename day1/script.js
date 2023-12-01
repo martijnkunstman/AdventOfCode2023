@@ -15,7 +15,6 @@ fetch("./input2.txt")
     d = d.replaceAll("seven", "s7n");
     d = d.replaceAll("eight", "e8t");
     d = d.replaceAll("nine", "n9e");
-    console.log(d);
     result(d);
   });
 let result = (input) => {
